@@ -38,12 +38,24 @@ char* String::operator=(String xstr)
 	strcpy(str, xstr.str);
 	return str;
 }
-
-
 int String::stringlen()
 	{
 		return strlen(str);
 	}
+
+
+void String::tolower()
+{
+	for (int i = 0; str[i] != '\0'; i++)
+		if (isupper(str[i]))
+			str[i] += 32;
+}
+void String::toupper()
+{
+	for (int i = 0; str[i] != '\0'; i++)
+		if (islower(str[i]))
+			str[i] -= 32;
+}
 
 
 int main()
@@ -55,6 +67,10 @@ int main()
 	/*Hello World*/
 	c = a + b;
 	c.show();
+        
+	/*hello*/
+	a.tolower();
+	a.show();
 	
 	/* World */
 	a=b;

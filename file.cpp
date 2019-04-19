@@ -14,14 +14,24 @@ public:
         void show() { cout << str << endl; }
 	char* operator+(String);
 	char* operator=(String);
-	int stringlen();
-	
+	char *operator+=(String);
+        int stringlen();
+        int stringsize();
 };
 
 char* String::operator+(String xstr)
 {
 	strcat(str, xstr.str);
 	return str;
+}
+char* String::operator+=(String xstr)
+{
+	strcat(str, xstr.str);
+	return str;
+}
+int String::stringsize()
+{
+	return (strlen(str) + 1);
 }
 char* String::operator=(String xstr)
 {
@@ -52,8 +62,13 @@ int main()
 	
 	/*5*/
 	cout << a.stringlen() << endl;
+       
+        /*6*/
+	cout << a.stringsize() << endl;
 
-
+        /*Hello World World*/
+	a += b;
+	a.show();
 
 
 	_getch();

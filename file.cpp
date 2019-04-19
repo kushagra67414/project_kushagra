@@ -17,6 +17,8 @@ public:
 	char *operator+=(String);
         int stringlen();
         int stringsize();
+	void tolower();
+	void toupper();
 };
 
 char* String::operator+(String xstr)
@@ -68,6 +70,10 @@ int main()
 	c = a + b;
 	c.show();
         
+	/*HELLO*/
+	a.toupper();
+	a.show();
+	
 	/*hello*/
 	a.tolower();
 	a.show();

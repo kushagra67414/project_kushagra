@@ -12,10 +12,18 @@ public:
 	String(){}
 	String(char* xstr){ strcpy(str, xstr);	}
 
+	char* operator+(String);
+
 	void show() { cout << str << endl; }
 	int stringlen();
 	
 };
+
+char* String::operator+(String xstr)
+{
+	strcat(str, xstr.str);
+	return str;
+}
 
 int String::stringlen()
 	{
@@ -28,6 +36,10 @@ int main()
 	
 	/*Testing Functions*/
 
+	/*Hello World*/
+	c = a + b;
+	c.show();
+	
 	/*5*/
 	cout << a.stringlen() << endl;
 

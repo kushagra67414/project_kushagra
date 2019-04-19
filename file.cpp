@@ -11,10 +11,9 @@ protected:
 public:
 	String(){}
 	String(char* xstr){ strcpy(str, xstr);	}
-
+        void show() { cout << str << endl; }
 	char* operator+(String);
-
-	void show() { cout << str << endl; }
+	char* operator=(String);
 	int stringlen();
 	
 };
@@ -24,11 +23,18 @@ char* String::operator+(String xstr)
 	strcat(str, xstr.str);
 	return str;
 }
+char* String::operator=(String xstr)
+{
+	strcpy(str, xstr.str);
+	return str;
+}
+
 
 int String::stringlen()
 	{
 		return strlen(str);
 	}
+
 
 int main()
 {
@@ -39,6 +45,10 @@ int main()
 	/*Hello World*/
 	c = a + b;
 	c.show();
+	
+	/* World */
+	a=b;
+	a.show();
 	
 	/*5*/
 	cout << a.stringlen() << endl;

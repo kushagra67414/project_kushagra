@@ -96,3 +96,64 @@ int main()
 	_getch();
 	return 0;
 }
+#include<iostream>
+#include<conio.h>
+#define FALSE 0
+#define TRUE 1
+using namespace std;
+class linklist
+{
+private:
+	struct node
+	{
+		int data;
+		node* link;
+	}*p;
+public:
+	linklist();
+	void append(int num);
+	void addatbeg(int num);
+	void addafter(int c, int num);
+	void del(int num);
+	void display();
+	
+	//To compare two linked list
+	int operator==(linklist);
+	
+	//To copt ylist from one to another.
+	void operator=(linklist);
+};
+
+linklist::linklist()
+{
+	p = NULL;
+}
+
+void linklist::append(int num)
+{
+	node *q, *t;
+	if (p == NULL)
+	{
+		p = new node;
+		p->data = num;
+		p->link = NULL;
+	}
+	else
+	{
+		q = p;
+		while (q->link != NULL)
+			q = q->link;
+		t = new node;
+		t->data = num;
+		t->link = NULL;
+	}
+}
+
+void linklist::addatbeg(int num)
+{
+	node *q;
+	q = new node;
+	q->data = num;
+	q->link = p;
+	p = q;
+}

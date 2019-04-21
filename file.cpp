@@ -254,3 +254,80 @@ int main()
 	_getch();
 	return 0;
 }
+#include <stdio.h> 
+#include <stdlib.h> 
+
+// Declare linked list node 
+
+struct Node { 
+	int data; 
+	struct Node* link; 
+}; 
+struct Node* top; 
+
+// Utility function to add an element data in the stack 
+// insert at the beginning 
+void push(int data) 
+{ 
+	// create new node temp and allocate memory 
+	struct Node* temp; 
+	temp = (struct Node*)malloc(sizeof(struct Node)); 
+
+	// check if stack (heap) is full. Then inserting an element would 
+	// lead to stack overflow 
+	if (!temp) { 
+		printf("\nHeap Overflow"); 
+		exit(1); 
+	} 
+
+	// initialize data into temp data field 
+	temp->data = data; 
+
+	// put top pointer reference into temp link 
+	temp->link = top; 
+
+	// make temp as top of Stack 
+	top = temp; 
+} 
+
+// Utility function to check if the stack is empty or not 
+int isEmpty() 
+{ 
+	return top == NULL; 
+} 
+
+// Utility function to return top element in a stack 
+int peek() 
+{ 
+	// check for empty stack 
+	if (!isEmpty(top)) 
+		return top->data; 
+	else
+		exit(EXIT_FAILURE); 
+} 
+
+// Utility function to pop top element from the stack 
+
+void pop() 
+{ 
+	struct Node* temp; 
+
+	// check for stack underflow 
+	if (top == NULL) { 
+		printf("\nStack Underflow"); 
+		exit(1); 
+	} 
+	else { 
+		// top assign into temp 
+		temp = top; 
+
+		// assign second node to top 
+		top = top->link; 
+
+		// destroy connection between first and second 
+		temp->link = NULL; 
+
+		// release memory of top node 
+		free(temp); 
+	} 
+} 

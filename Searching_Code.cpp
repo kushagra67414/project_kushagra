@@ -331,3 +331,52 @@ void pop()
 		free(temp); 
 	} 
 } 
+void display() // remove at the beginning 
+{ 
+	struct Node* temp; 
+
+	// check for stack underflow 
+	if (top == NULL) { 
+		printf("\nStack Underflow"); 
+		exit(1); 
+	} 
+	else { 
+		temp = top; 
+		while (temp != NULL) { 
+
+			// print node data 
+			printf("%d->", temp->data); 
+
+			// assign temp link to temp 
+			temp = temp->link; 
+		} 
+	} 
+} 
+
+// main function 
+
+int main(void) 
+{ 
+	// push the elements of stack 
+	push(11); 
+	push(22); 
+	push(33); 
+	push(44); 
+
+	// display stack elements 
+	display(); 
+
+	// print top elementof stack 
+	printf("\nTop element is %d\n", peek()); 
+
+	// delete top elements of stack 
+	pop(); 
+	pop(); 
+
+	// display stack elements 
+	display(); 
+
+	// print top elementof stack 
+	printf("\nTop element is %d\n", peek()); 
+	return 0; 
+} 

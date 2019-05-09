@@ -634,7 +634,10 @@ int main(){
 
 	return 0;
 }
- #include <iostream>
+<<<<<<< HEAD
+=======
+
+        #include <iostream>
         using namespace std;
 
         int main()
@@ -671,3 +674,4 @@ int main(){
 	}
 pant bhla toh sb bhla
 VEER HAI VIRAT HAI
+>>>>>>> 427411a88431b0a63459618f683e339c4d3c7be4

@@ -662,12 +662,6 @@ int main(){
         		{
         			cout<<" "<< a[i][j]; //print the matrix values
         		}
-        		//print the variable and constant values
-        		cout<< "  " <<static_cast<char>(var) << "  =  " << b[i][0]<< "\n";
-        		var++;
-        	}
-        	
-        	return 0;
-	}
+        		
 pant bhla toh sb bhla
 VEER HAI VIRAT HAI
